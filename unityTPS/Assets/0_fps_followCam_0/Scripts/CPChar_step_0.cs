@@ -29,7 +29,7 @@ public class CPChar_step_0 : MonoBehaviour
         //좌우 선회
         //Rotate함수는 '사원수'를 기반으로 작동한다.
         this.transform.Rotate(Vector3.up,tH * mSpeedRotate * Time.deltaTime);
-
+        
         //속도 = 거리의 변화량/시간의변화량.    벡터이다.
         //Vector3 tVelocity = Vector3.zero;//영벡터로 초기화
         //tVelocity = Vector3.forward * 10.0f * tV * Time.deltaTime; //벡터의 스칼라 곱셈

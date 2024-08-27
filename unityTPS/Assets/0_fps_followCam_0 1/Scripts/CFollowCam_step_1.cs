@@ -34,6 +34,22 @@ public class CFollowCam_step_1 : MonoBehaviour
     {
         float tMouseX = Input.GetAxis("Mouse X");
         float tMouseY = Input.GetAxis("Mouse Y");
+
+        mMouseXVal = mMouseXVal + tMouseX;
+        if (mMouseXVal > 60f)
+        {
+            mMouseXVal = 60f;
+        }
+        else if (mMouseXVal < -60f)
+        {
+            mMouseXVal = -60f;
+        }
+        mMouseYVal = mMouseYVal + tMouseY * (-1.0f);
+        //Screen에서는 윈도우 좌표계(2D)를 사용한다.
+        //여기서는 y축 방향이 뒤집어져 있으므로 -1을 곱하여 반전한다.
+
+        //'오일러 각에 의한 회전을 연산'하고 이것을 '사원수로 변환'하여 적용
+        this.transform.rotation = Quaternion.Euler(mMouseYVal, mMouseXVal, 0f);
     }
 
     private void LateUpdate()
